@@ -9,7 +9,7 @@ createConnection()
   .then(async () => {
     app.listen(PORT, () =>
       // tslint:disable-next-line: no-console
-      console.log(`Server is running on http://localhost:${PORT}`)
+      console.log(`Server is running on http://localhost:${PORT}`),
     );
   })
   // tslint:disable-next-line: no-console
