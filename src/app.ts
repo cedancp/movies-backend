@@ -6,8 +6,8 @@ import * as http from 'http';
 export class App {
   app: express.Application;
 
-  public startServer() {
-    const PORT: number = 3000;
+  public startServer(): express.Application {
+    const PORT = 3000;
     this.app = express();
     const server: http.Server = http.createServer(this.app);
 
@@ -21,10 +21,6 @@ export class App {
       );
     }
 
-    return this.app;
-  }
-
-  public getApp() {
     return this.app;
   }
 }

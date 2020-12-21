@@ -11,7 +11,7 @@ export class MoviesRoutes {
     this.configureRoute();
   }
 
-  configureRoute = () => {
+  configureRoute = (): void => {
     this.app.route('/movies').get(this.controller.getMovies);
-  }
+  };
 }
