@@ -1,18 +1,11 @@
 import 'reflect-metadata';
-const PORT = process.env.port || 3000;
-import express = require('express');
 import { createConnection } from 'typeorm';
-
-const app = express();
+import { App } from './app';
 
 createConnection()
   .then(async () => {
-    app.listen(PORT, () =>
-      // tslint:disable-next-line: no-console
-      console.log(`Server is running on http://localhost:${PORT}`),
-    );
+    const app: App = new App();
+    app.startServer();
   })
   // tslint:disable-next-line: no-console
   .catch(error => console.log(error));
-
-export default app;
