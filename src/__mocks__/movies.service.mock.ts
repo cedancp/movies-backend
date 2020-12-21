@@ -1,15 +1,20 @@
+import { movieDetailData, moviesData } from './dataMocks';
+
+const mockGetAllMovies = jest.fn();
+const mockGetMovie = jest.fn();
+
 jest.mock('./../services/movies.service', () => {
   return {
     MoviesService: jest.fn().mockImplementation(() => {
       return {
-        getAllMovies: jest.fn().mockReturnValue([
-          {
-            id: 'uuidmovie1',
-            title: 'Back to the future',
-            coverUrl: 'test-cover-url',
-          },
-        ]),
+        getAllMovies: mockGetAllMovies.mockImplementation(() => moviesData),
+        getMovie: mockGetMovie.mockImplementation(() => movieDetailData),
       };
     }),
   };
 });
+
+export default {
+  mockGetAllMovies,
+  mockGetMovie,
+};

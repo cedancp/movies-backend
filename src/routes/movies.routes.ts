@@ -13,5 +13,6 @@ export class MoviesRoutes {
 
   configureRoute = (): void => {
     this.app.route('/movies').get(this.controller.getMovies);
+    this.app.route('/movieDetail/:movieId').get(this.controller.getMovieDetail);
   };
 }
