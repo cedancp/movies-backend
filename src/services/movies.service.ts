@@ -9,7 +9,7 @@ export class MoviesService {
   }
 
   public getMovie = async (id: string): Promise<MovieDetail> => {
-    const movieDetail = await getManager().findOne(MovieDetail, id);
+    const movieDetail = await getManager().findOne(MovieDetail, id, {relations: ['trailers']});
     return movieDetail;
   }
 }
